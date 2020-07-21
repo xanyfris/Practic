@@ -1,0 +1,349 @@
+<html>
+  <head>
+    <title>Практика</title>
+    <script language="JavaScript">
+      function FirstTask(obj) {
+        var num = parseInt(obj.num1.value);
+        var last = num % 10;
+        obj.res.value = (last * 100000 + num - last) / 10;
+      }
+    </script>
+    <script language="JavaScript">
+         <!--//
+      function SecondTask(obj) {
+        var num = parseInt(obj.num2.value);
+        obj.res.value = Boolean(num % 2 == 0);// true чётное, false нечётное
+      }
+      //-->
+    </script>
+    <script language="JavaScript">
+           <!-- //
+           function ThirdTask(obj) {
+             var num1 = Number(obj.num3.value);
+             var num2 = Number(obj.num4.value);  //месяц, от 0 до 11
+             var num3 = Number(obj.num5.value);
+             var D = new Date(num3, num2 - 1, num1); // месяц, от 1 до 12
+             D.setDate(D.getDate() + 1);
+             obj.res.value = D;
+           }
+      //-->
+    </script>
+    <script language="JavaScript">
+        <!-- //
+        function FourthTask(obj) {
+          var x = parseInt(obj.num6.value);
+          var res = Boolean(true);
+          for (var i = 2; i < x; i++) {
+            if (x <= 1 || x % i == 0) {
+              res = false;
+              break;
+            }
+          };
+          var number = (x > 1 && res) ? "простое" : "не такое каким кажется";
+          obj.res.value = number;
+        }
+      //-->
+    </script>
+    <script language="JavaScript">
+      function FiveTask(obj) {
+        var a = Number(obj.num7.value);
+        var b = Number(obj.num8.value);
+        var c = Number(obj.num9.value);
+        var d = Number(obj.num10.value);
+        var e = Number(obj.num11.value);
+        obj.res.value = Math.max(Math.max(a, b), Math.max(c, d), e);
+      }
+    </script>
+
+    <script language="JavaScript">
+          <!-- //
+          function SixTask(obj) {
+            var name = String(obj.num12.value).toLowerCase();
+            var array = ['ананас', 'яблоко', 'арбуз'];
+            var result = 0;
+            for (var i = 0; i < 3; i++) {
+              if (name == array[i]) {
+                result = i;
+                break;
+              }
+              else
+                result = -1;
+            }
+            obj.res.value = result;
+          }
+      //-->
+    </script>
+    <script language="JavaScript">
+          <!-- //
+          function SevenTask(obj) {
+            var str = String(obj.num13.value);
+            var strLen = String(obj.num13.value).length;
+            var result = '';
+            strReverse = str.split('').reverse().join('');
+            if (strReverse == str) result = 'полиндром';
+            else
+              result = 'не полиндром';
+            obj.res.value = result;
+          }
+      //-->
+    </script>
+    <script language="JavaScript">
+      <!-- //
+      function EightTask(obj) {                // можно было как строку местами перебрать и без всяких %
+        var num = parseInt(obj.num14.value); // можно массив закатать и поменять последний и первый элемент swap()
+        var last = Math.trunc(num % 10);    //можно формулой avr*10+first*last*100+first
+        var first = Math.trunc(num / 100); //можно забить на это болт и идти следующую задачу решать
+        var average = Math.trunc(num % 100 / 10);                // % есть (сделано по ТЗ)
+        obj.res.value = String(last) + String(average) + String(first); // задом наперёд выводит :D
+      }
+       //-->
+    </script>
+    <script language="JavaScript">
+      function NineTask(obj) {
+        var bottom = parseInt(obj.res1.value),
+          value = parseInt(obj.res.value),
+          top = parseInt(obj.res2.value);
+        var answ = obj.num15.value >= 1 ? true : false;
+        if (answ) {
+          bottom = value;
+          value = bottom + (top - bottom) / 2;
+        } else {
+          top = value;
+          value = bottom + (top - bottom) / 2;
+        }
+        if (top - bottom == 1) value = bottom + 1;
+        obj.res1.value = Math.trunc(bottom);
+        obj.res.value = Math.trunc(value);
+        obj.res2.value = Math.trunc(top);
+      }
+    </script>
+    <script language="JavaScript">
+      var counter = 0;
+      function TenTask1(obj) {
+        document.getElementById("one").hidden = true;
+      }
+      function TenTask2(obj) {
+        document.getElementById("one").hidden = true;
+        return (counter += 2);
+      }
+      function TenTask3(obj) {
+        document.getElementById("one").hidden = true;
+      }
+      function TenTask4(obj) {
+        document.getElementById("two").hidden = true;
+      }
+      function TenTask5(obj) {
+        document.getElementById("two").hidden = true;
+      }
+      function TenTask6(obj) {
+        document.getElementById("two").hidden = true;
+        return (counter += 2);
+      }
+      function TenTask7(obj) {
+        document.getElementById("three").hidden = true;
+        return (counter += 2);
+      }
+      function TenTask8(obj) {
+        document.getElementById("three").hidden = true;
+        return (counter += 2);
+      }
+      function TenTask9(obj) {
+        document.getElementById("three").hidden = true;
+        return (counter += 2);
+      }
+      function TenTask10(obj) {
+        var counter2 = counter;
+        document.getElementById("rezultat").innerHTML =
+          "Задания выполнены верно на " + counter2 + " баллов из 6";
+      }
+    </script>
+  </head>
+
+  <body>
+    <p>
+      Запросите у пользователя пятизначное число и переместите последнюю цифру в
+      начало (из числа 12345 должно получиться число 51234) использовать только
+      операторы ( +, -, /, *, %)
+    </p>
+    <form name="form1">
+      Пятизначное число: <input type="text" size="8" name="num1" />
+      <hr />
+      <input type="button" value="Определить" onClick="FirstTask(form1)" />
+      <input type="text" size="8" name="res" />
+      <hr />
+      <input type="reset" />
+    </form>
+    <p>
+      Запросите у пользователя целое число и выведите в ответ, четное число или
+      нет. В задании используйте логические операторы. В задании не надо
+      использовать if или switch.
+    </p>
+    <form name="form2">
+      Целое число: <input type="text" size="8" name="num2" />
+      <hr />
+      <input type="button" value="Определить" onClick="SecondTask(form2)" />
+      <input type="text" size="8" name="res" />
+      <hr />
+      <input type="reset" />
+    </form>
+    <p>
+      Запросить дату (день, месяц, год) и вывести следующую за ней дату (+1 день
+      что ли?). Учтите возможность перехода на следующий месяц,год, а также
+      високосный год.
+    </p>
+    <form name="form3">
+      День: <input type="text" size="8" name="num3" />
+      <hr />
+      Месяц: <input type="text" size="8" name="num4" />
+      <hr />
+      Год: <input type="text" size="8" name="num5" />
+      <hr />
+      <input type="button" value="Определить" onClick="ThirdTask(form3)" />
+      <input type="text" size="8" name="res" />
+      <hr />
+      <input type="reset" />
+    </form>
+    <p>
+      Запросить число и проверить, простое ли оно. Простое число делится без
+      остатка только на себя и на единицу
+    </p>
+    <form name="form4">
+      Число: <input type="text" size="8" name="num6" />
+      <hr />
+      <input type="button" value="Определить" onClick="FourthTask(form4)" />
+      <input type="text" size="8" name="res" />
+      <hr />
+      <input type="reset" />
+    </form>
+    <p>
+      Написать функцию, которая принимает от 1 до 5 чисел и возвращает большее
+      из них.
+    </p>
+    <form name="form5">
+      Число: <input type="text" size="8" name="num7" />
+      <hr />
+      Число: <input type="text" size="8" name="num8" />
+      <hr />
+      Число: <input type="text" size="8" name="num9" />
+      <hr />
+      Число: <input type="text" size="8" name="num10" />
+      <hr />
+      Число: <input type="text" size="8" name="num11" />
+      <hr />
+      <input type="button" value="Определить" onClick="FiveTask(form5)" />
+      <input type="text" size="8" name="res" />
+      <hr />
+      <input type="reset" />
+    </form>
+    <p>
+      Поиск фрукта в массиве.(ананас, яблоко, арбуз) Функция принимает название
+      фрукта и возвращает индекс найденного элемента или -1, если не найден.
+      Поиск должен быть нерегистрозависимым
+    </p>
+    <form name="form6">
+      Фрукт: <input type="text" size="8" name="num12" />
+      <hr />
+      <input type="button" value="Определить" onClick="SixTask(form6)" />
+      <input type="text" size="8" name="res" />
+      <hr />
+      <input type="reset" />
+    </form>
+    <p>
+      Написать функцию, которая проверяет, является ли переданная строка
+      палиндромом.
+    </p>
+    <form name="form7">
+      Строка: <input type="text" size="8" name="num13" />
+      <hr />
+      <input type="button" value="Определить" onClick="SevenTask(form7)" />
+      <input type="text" size="8" name="res" />
+      <hr />
+      <input type="reset" />
+    </form>
+    <p>
+      Запросите у пользователя трехзначное число и выведите его задом наперед.
+      Для решения задачи вам понадобится оператор % (остаток от деления). мб
+      понравятся (нет)
+    </p>
+    <form name="form8">
+      Трёхзначное число: <input type="text" size="8" name="num14" />
+      <hr />
+      <input type="button" value="Определить" onClick="EightTask(form8)" />
+      <input type="text" size="8" name="res" />
+      <hr />
+      <input type="reset" />
+    </form>
+    <p>
+      Предложить пользователю загадать число от 0 до 100 и отгадать его
+      следующим способом: каждую итерацию цикла делите диапазон чисел пополам,
+      записываете результат в N и спрашиваете у пользователя «Ваше число > N, <
+      N или==N?». В зависимости от того что указал пользователь, уменьшаете
+      диапазон. Начальный диапазон от 0 до 100, поделили пополам и получили 50.
+      Если пользователь указал, что его число> 50, то изменили диапазон на от 51
+      до 100. И так до тех пор, пока пользователь не выберет == N.
+    </p>
+    <form name="form9">
+      <hr />
+      <!-- * <input type="button" value="Меньше" onClick="NineTask1(form9)" />
+      <input type="button" value="Равно" onClick="NineTask2(form9)" />
+      <input type="button" value="больше" onClick="NineTask3(form9)" /> 
+      Ваше число:<input type="text" size="8" name="res" value="50" />? -->
+      1 = больше, 0 = меньше: <input type="text" size="8" name="num15" />
+      <hr />
+      <input type="button" value="проверить" onClick="NineTask(form9)" />
+      <input type="text" size="8" name="res" value="50" />?
+      <input type="hidden" size="8" name="res1" value="0" />
+      <input type="hidden" size="8" name="res2" value="100" />
+      <hr />
+      <input type="reset" />
+    </form>
+    <p>
+      Задать пользователю 3 вопроса, в каждом вопросе по 3 варианта ответа. За
+      каждый правильный ответ начисляется 2 балла. После вопросов выведите
+      пользователю количество набранных баллов.
+    </p>
+    <form name="form10">
+      <div id="one">
+        1. Зимой и летом одним цветом:
+        <hr />
+        <input type="button" value="#BLM" onClick="TenTask1(form10)" />
+        <input type="button" value="Ёлка" onClick="TenTask2(form10)" />
+        <input type="button" value="Алкаш" onClick="TenTask3(form10)" />
+        <hr />
+      </div>
+      <div id="two">
+        2. Ты помни его немножко, станет твердым как картошка:
+        <hr />
+        <input type="button" value="Пластелин" onClick="TenTask4(form10)" />
+        <input type="button" value="Сосок" onClick="TenTask5(form10)" />
+        <input type="button" value="Снежок" onClick="TenTask6(form10)" />
+        <hr />
+      </div>
+      <div id="three">
+        3. Выбери правильный ответ:
+        <hr />
+        <input type="button" value="Влюбиться" onClick="TenTask7(form10)" />
+        <input
+          type="button"
+          value="Заработать денег"
+          onClick="TenTask8(form10)"
+        />
+        <input
+          type="button"
+          value="Ничего не делать"
+          onClick="TenTask9(form10)"
+        />
+        <hr />
+      </div>
+
+      <input
+        type="button"
+        value="Показать результат"
+        onClick="TenTask10(form10)"
+      />
+      <div id="rezultat"></div>
+      <hr />
+      <button onclick="TenTask10(form10)">F5</button>
+    </form>
+  </body>
+</html>
